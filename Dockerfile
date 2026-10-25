@@ -17,4 +17,3 @@ USER sheild
 ENV SHEILD_STORAGE_DIR=/app/data/evidence
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "/app/sheild.jar"]
-server.port=${PORT:8080}
