@@ -1,0 +1,12 @@
+{
+  "name": "sheild-ui-tests",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Browser-level end-to-end checks for SHEild",
+  "scripts": {
+    "e2e": "node e2e-check.js"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.55.0"
+  }
+}

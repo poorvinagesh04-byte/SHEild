@@ -1,0 +1,25 @@
+# Build output
+target/
+
+# Runtime data (private evidence files and local database artefacts)
+data/
+*.log
+
+# Local configuration and secrets
+.env
+.env.local
+application-local.properties
+
+# Editor / OS files
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Test / tooling output
+surefire-reports/
+playwright-report/
+test-results/
+node_modules/
+tests/ui/output/
