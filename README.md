@@ -18,7 +18,7 @@ This is a **hackathon prototype**, not a production safety service. It stores re
 | Database | MySQL 8 |
 | Frontend | Vanilla HTML, CSS, and JavaScript modules; Fetch API; hash-based SPA routing |
 | Authentication | Anonymous browser token; only a SHA-256 hash is stored server-side |
-| AI | None configured; summaries and support replies are deterministic rule-based text |
+| None configured; summaries and support replies are deterministic rule-based text |
 | Reporting | No automatic submission to platforms, police, or authorities |
 | Live demo | None configured in repository; run locally with Docker Compose or Maven |
 | Tests | 4 backend integration tests and a Playwright browser end-to-end flow |
@@ -221,7 +221,7 @@ cp .env.example .env
 docker compose up --build
 ```
 
-Open <http://localhost:8080>. MySQL is exposed on host port `3307`; the application connects to the `db` service internally. Evidence files and the database live in named volumes.
+Open <https://sheild-2.onrender.com/>. MySQL is exposed on host port `18225`; the application connects to the `db` service internally. Evidence files and the database live in named volumes.
 
 To stop:
 
@@ -250,7 +250,7 @@ Prerequisites: JDK 17 or newer and MySQL 8. Maven is not required because the wr
 
    The default credentials above are development examples only. Replace them before any shared or production use.
 
-2. Start the app with defaults for a local MySQL instance on port `3307`:
+2. Start the app with defaults for a local MySQL instance on port `18225`:
 
    Windows PowerShell:
 
@@ -269,9 +269,9 @@ Prerequisites: JDK 17 or newer and MySQL 8. Maven is not required because the wr
    Windows PowerShell:
 
    ```powershell
-   $env:DB_URL='jdbc:mysql://127.0.0.1:3307/shield?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=utf8'
-   $env:DB_USERNAME='shield'
-   $env:DB_PASSWORD='shield_dev_password'
+   $env:DB_URL='jdbc:mysql://avnadmin:YOUR_AIVEN_PASSWORD@mysql-3d451d69-poorvinagesh04-a60b.e.aivencloud.com:18225/defaultdb?ssl-mode=REQUIRED'
+   $env:DB_USERNAME='avnadmin'
+   $env:DB_PASSWORD='YOUR_AIVEN_PASSWORD'
    $env:SHEILD_STORAGE_DIR='C:\path\to\data\evidence'
    .\mvnw.cmd spring-boot:run
    ```
@@ -279,21 +279,21 @@ Prerequisites: JDK 17 or newer and MySQL 8. Maven is not required because the wr
    macOS or Linux:
 
    ```sh
-   export DB_URL='jdbc:mysql://127.0.0.1:3307/shield?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=utf8'
-   export DB_USERNAME='shield'
-   export DB_PASSWORD='shield_dev_password'
+   export DB_URL='jdbc:mysql://avnadmin:YOUR_AIVEN_PASSWORD@mysql-3d451d69-poorvinagesh04-a60b.e.aivencloud.com:18225/defaultdb?ssl-mode=REQUIRED'
+   export DB_USERNAME='avnadmin'
+   export DB_PASSWORD='YOUR_AIVEN_PASSWORD'
    export SHEILD_STORAGE_DIR='/path/to/data/evidence'
    ./mvnw spring-boot:run
    ```
 
-3. Open <http://localhost:8080>. Flyway creates or validates the schema on startup.
+3. Open <https://sheild-2.onrender.com/>. Flyway creates or validates the schema on startup.
 
 Configuration variables:
 
 | Variable | Default | Purpose |
 | --- | --- | --- |
-| `PORT` | `8080` | HTTP port |
-| `DB_URL` | local MySQL on `3307/shield` | JDBC connection |
+| `PORT` |  HTTP port |
+| `DB_URL` | local MySQL on `18225/shield` | JDBC connection |
 | `DB_USERNAME` | `shield` | Database user |
 | `DB_PASSWORD` | `shield_dev_password` | Database password, development example only |
 | `SHEILD_STORAGE_DIR` | `./data/evidence` | Private evidence directory |
@@ -394,11 +394,6 @@ Docker Compose was not exercised because Docker was not installed in the verific
 
 The verified local runtime used Java 27 with a Java 17 target. Docker uses Temurin 17.
 
-## Project documentation
-
-- [Presentation outline](docs/PRESENTATION.md) - slide-by-slide story and technical talking points.
-- [Demo plan](docs/DEMO.md) - a five-minute demo script with a fallback path.
-- [Testing record](docs/TESTING.md) - automated and browser test coverage and known limitations.
 
 ## Branding
 
